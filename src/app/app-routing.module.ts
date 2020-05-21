@@ -1,13 +1,13 @@
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import {
-  NbAuthComponent,
-  NbLoginComponent,
-  NbLogoutComponent,
+
+import { NbRequestPasswordComponent,
   NbRegisterComponent,
-  NbRequestPasswordComponent,
-  NbResetPasswordComponent,
-} from '@nebular/auth';
+  NbLogoutComponent,
+  NbLoginComponent,
+  NbAuthComponent,
+  NbResetPasswordComponent } from './@theme/auth/public_api';
+
 
 export const routes: Routes = [
   {

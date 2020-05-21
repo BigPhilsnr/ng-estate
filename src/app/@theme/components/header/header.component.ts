@@ -21,28 +21,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   themes = [
     {
-      value: 'default',
-      name: 'Light',
-    },
-    {
-      value: 'dark',
-      name: 'Dark',
-    },
-    {
-      value: 'cosmic',
-      name: 'Cosmic',
-    },
-    {
-      value: 'corporate',
-      name: 'Corporate',
-    },
-    {
       value: 'material-light',
-      name: 'Material Light',
+      name: 'Day Mode',
     },
     {
       value: 'material-dark',
-      name: 'Material Dark',
+      name: 'Night Mode',
     },
   ];
 
@@ -62,7 +46,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.materialTheme$ = this.themeService.onThemeChange()
       .pipe(map(theme => {
         const themeName: string = theme?.name || '';
-        return themeName.startsWith('material');
+        return true;
       }));
   }
 
@@ -88,7 +72,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       )
       .subscribe(themeName => {
         this.currentTheme = themeName;
-        this.rippleService.toggle(themeName?.startsWith('material'));
+        this.rippleService.toggle(true);
       });
   }
 

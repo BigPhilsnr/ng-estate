@@ -1,7 +1,7 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MAT_RIPPLE_GLOBAL_OPTIONS } from '@angular/material/core';
-import { NbAuthModule, NbDummyAuthStrategy } from '@nebular/auth';
+
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
 import { of as observableOf } from 'rxjs';
 
@@ -54,6 +54,9 @@ import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { RippleService } from './utils/ripple.service';
 import { MockDataModule } from './mock/mock-data.module';
+import { NbAuthModule } from '../@theme/auth/auth.module';
+import { NbPasswordAuthStrategy } from '../@theme/auth/strategies/password/password-strategy';
+
 
 const socialLinks = [
   {
@@ -107,11 +110,9 @@ export const NB_CORE_PROVIDERS = [
   ...MockDataModule.forRoot().providers,
   ...DATA_SERVICES,
   ...NbAuthModule.forRoot({
-
     strategies: [
-      NbDummyAuthStrategy.setup({
+     NbPasswordAuthStrategy.setup({
         name: 'email',
-        delay: 3000,
       }),
     ],
     forms: {

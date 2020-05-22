@@ -1,11 +1,23 @@
 import { of as observableOf,  Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { Contacts, RecentUsers, UserData } from '../data/users';
+import { Contacts, RecentUsers, UserData, User } from '../data/users';
 
 @Injectable()
 export class UserService extends UserData {
 
+  getUser(): Observable<User> {
+    return observableOf(this.user);
+  }
+
   private time: Date = new Date;
+
+  private user = {
+    name: localStorage.getItem('username'),
+    email: localStorage.getItem('email'),
+    role: localStorage.getItem('role'),
+    roleId: localStorage.getItem('roleId'),
+    picture: localStorage.getItem('avatar') ? localStorage.getItem('avatar') : 'assets/images/kitten.dark.png',
+  };
 
   private users = {
     nick: { name: 'Nick Jones', picture: 'assets/images/nick.png' },

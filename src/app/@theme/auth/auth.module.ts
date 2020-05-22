@@ -1,7 +1,7 @@
 import { Injector, ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpRequest } from '@angular/common/http';
 
 import {
@@ -12,6 +12,12 @@ import {
   NbIconModule,
   NbInputModule,
   NbLayoutModule,
+  NbTabsetModule,
+  NbRouteTabsetModule,
+  NbStepperModule,
+  NbListModule,
+  NbAccordionModule,
+  NbUserModule,
 } from '@nebular/theme';
 
 import { NbAuthService } from './services/auth.service';
@@ -45,8 +51,12 @@ import { NbRegisterComponent } from './components/register/register.component';
 import { NbLogoutComponent } from './components/logout/logout.component';
 import { NbRequestPasswordComponent } from './components/request-password/request-password.component';
 import { NbResetPasswordComponent } from './components/reset-password/reset-password.component';
-
+import { EnrollComponent } from './components/enroll/enroll.component';
 import { deepExtend } from './helpers';
+import { EstepsComponent } from './components/esteps/esteps.component';
+import { ThemeModule } from '../theme.module';
+import { LayoutRoutingModule } from '../../pages/layout/layout-routing.module';
+
 
 export function nbStrategiesFactory(options: NbAuthOptions, injector: Injector): NbAuthStrategy[] {
   const strategies = [];
@@ -79,7 +89,18 @@ export function nbNoOpInterceptorFilter(req: HttpRequest<any>): boolean {
 
 @NgModule({
   imports: [
-    CommonModule,
+
+    FormsModule,
+    ReactiveFormsModule,
+    ThemeModule,
+    NbTabsetModule,
+    NbRouteTabsetModule,
+    NbStepperModule,
+    NbButtonModule,
+    NbListModule,
+    NbAccordionModule,
+    NbUserModule,
+    LayoutRoutingModule,
     NbLayoutModule,
     NbCardModule,
     NbCheckboxModule,
@@ -98,6 +119,8 @@ export function nbNoOpInterceptorFilter(req: HttpRequest<any>): boolean {
     NbRequestPasswordComponent,
     NbResetPasswordComponent,
     NbLogoutComponent,
+    EnrollComponent,
+    EstepsComponent,
   ],
   exports: [
     NbAuthComponent,
@@ -107,6 +130,8 @@ export function nbNoOpInterceptorFilter(req: HttpRequest<any>): boolean {
     NbRequestPasswordComponent,
     NbResetPasswordComponent,
     NbLogoutComponent,
+    EnrollComponent,
+    EstepsComponent,
   ],
 })
 export class NbAuthModule {

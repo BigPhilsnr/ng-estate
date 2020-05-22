@@ -11,6 +11,8 @@ import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import {NbPasswordAuthStrategy, NbAuthModule } from './@theme/auth/public_api';
+import { environment } from '../environments/environment';
 
 import {
   NbChatModule,
@@ -23,7 +25,8 @@ import {
 
 } from '@nebular/theme';
 
-import { NbAuthModule } from './@theme/auth/public_api';
+
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -43,7 +46,19 @@ import { NbAuthModule } from './@theme/auth/public_api';
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
-    NbAuthModule.forRoot(),
+    NbAuthModule.forRoot({
+      strategies: [
+        NbPasswordAuthStrategy.setup({
+          name: 'email',
+          baseEndpoint: environment.apiBaseUrl,
+        }),
+      ],
+      forms: {
+        login: {
+          strategy: 'email', // provider -> strategy
+        },
+     },
+    }),
   ],
   bootstrap: [AppComponent],
 })

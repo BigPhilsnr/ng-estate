@@ -13,7 +13,7 @@ import { NbAuthResult } from '../../services/auth-result';
 import { NbAuthStrategy } from '../auth-strategy';
 import { NbAuthStrategyClass } from '../../auth.options';
 import { NbPasswordAuthStrategyOptions, passwordStrategyOptions } from './password-strategy-options';
-import { NbAuthIllegalTokenError } from '../../services/token/token';
+import { NbAuthIllegalTokenError, NbAuthSimpleToken } from '../../services/token/token';
 
 /**
  * The most common authentication provider for email/password strategy.
@@ -172,7 +172,7 @@ export class NbPasswordAuthStrategy extends NbAuthStrategy {
             this.getOption(`${module}.redirect.success`),
             [],
             this.getOption('messages.getter')(module, res, this.options),
-            this.createToken(this.getOption('token.getter')(module, res, this.options), requireValidToken));
+            new NbAuthSimpleToken(res, 'email'));
         }),
         catchError((res) => {
           return this.handleResponseError(res, module);
@@ -201,7 +201,7 @@ export class NbPasswordAuthStrategy extends NbAuthStrategy {
             this.getOption(`${module}.redirect.success`),
             [],
             this.getOption('messages.getter')(module, res, this.options),
-            this.createToken(this.getOption('token.getter')('login', res, this.options), requireValidToken));
+            new NbAuthSimpleToken(res, 'email'));
         }),
         catchError((res) => {
           return this.handleResponseError(res, module);
@@ -337,7 +337,7 @@ export class NbPasswordAuthStrategy extends NbAuthStrategy {
     if (res instanceof HttpErrorResponse) {
       errors = this.getOption('errors.getter')(module, res, this.options);
     } else if (res instanceof NbAuthIllegalTokenError) {
-      errors.push(res.message)
+      errors.push(res.message);
     } else {
       errors.push('Something went wrong.');
     }

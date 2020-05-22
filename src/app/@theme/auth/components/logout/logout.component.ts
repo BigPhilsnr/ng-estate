@@ -12,6 +12,7 @@ import { NbAuthService } from '../../services/auth.service';
 import { NbAuthResult } from '../../services/auth-result';
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'nb-logout',
   templateUrl: './logout.component.html',
 })

@@ -5,6 +5,7 @@ export class NbAuthResult {
   protected token: NbAuthToken;
   protected errors: string[] = [];
   protected messages: string[] = [];
+  protected error: string;
 
   // TODO: better pass object
   constructor(protected success: boolean,
@@ -12,7 +13,9 @@ export class NbAuthResult {
               protected redirect?: any,
               errors?: any,
               messages?: any,
-              token: NbAuthToken = null) {
+              token: NbAuthToken = null,
+              message?: string,
+              ) {
 
     this.errors = this.errors.concat([errors]);
     if (errors instanceof Array) {
@@ -20,6 +23,7 @@ export class NbAuthResult {
     }
 
     this.messages = this.messages.concat([messages]);
+    this.error = message;
     if (messages instanceof Array) {
       this.messages = messages;
     }
@@ -40,6 +44,8 @@ export class NbAuthResult {
   }
 
   getErrors(): string[] {
+    console.log(this.response);
+     this.errors.push(this.response.error.message);
     return this.errors.filter(val => !!val);
   }
 

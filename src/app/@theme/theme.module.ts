@@ -55,7 +55,6 @@ const NB_MODULES = [
   NbSelectModule,
   NbIconModule,
   NbEvaIconsModule,
-
 ];
 const COMPONENTS = [
   HeaderComponent,

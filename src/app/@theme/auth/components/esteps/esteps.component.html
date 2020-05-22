@@ -1,0 +1,76 @@
+<nb-stepper orientation="horizontal" class="col-md-12 col-lg-12 col-xxxl-12">
+  <nb-step [label]="labelOne">
+    <ng-template #labelOne>First step</ng-template>
+    <h1 id="title" class="title">Welcome</h1>
+    <p class="sub-title">Hi, register your organization</p>
+    <div class="form-control-group">
+      <label class="label" for="input-name">Brand name:</label>
+      <input nbInput [(ngModel)]="user.brandName" #fullName="ngModel" id="input-name" name="fullName"
+        placeholder="Brand name" autofocus fullWidth fieldSize="large"
+        [status]="fullName.dirty ? (fullName.invalid  ? 'danger' : 'success') : 'basic'"
+        [attr.aria-invalid]="fullName.invalid && fullName.touched ? true : null">
+
+    </div>
+    <div class="form-control-group">
+      <label class="label" for="input-name">Company name:</label>
+      <input nbInput [(ngModel)]="user.companyName" #companyName="ngModel" id="input-name" name="companyName"
+        placeholder="Company Name" autofocus fullWidth fieldSize="large"
+        [status]="companyName.dirty ? (companyName.invalid  ? 'danger' : 'success') : 'basic'"
+        [attr.aria-invalid]="companyName.invalid && companyName.touched ? true : null">
+    </div>
+
+    <button nbButton matRipple disabled nbStepperNext>prev</button>
+    <button nbButton matRipple nbStepperNext>next</button>
+  </nb-step>
+  <nb-step [label]="labelTwo">
+    <ng-template #labelTwo>Second step</ng-template>
+    <h1 id="title" class="title">Contact details</h1>
+    <p class="sub-title">Please fill in with your contact information</p>
+    <div class="form-control-group">
+      <label class="label" for="input-name">Company phone number:</label>
+      <input nbInput [(ngModel)]="user.phone" #phone="ngModel" id="input-name" name="phone" placeholder="Phone number"
+        autofocus fullWidth fieldSize="large" [status]="phone.dirty ? (phone.invalid  ? 'danger' : 'success') : 'basic'"
+        [attr.aria-invalid]="phone.invalid && phone.touched ? true : null">
+    </div>
+    <div class="form-control-group">
+      <label class="label" for="input-email">Company Email address:</label>
+      <input nbInput [(ngModel)]="user.email" #email="ngModel" id="input-email" name="email" pattern=".+@.+..+"
+        placeholder="Email address" fullWidth fieldSize="large"
+        [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : 'basic'"
+        [attr.aria-invalid]="email.invalid && email.touched ? true : null">
+    </div>
+    <button nbButton matRipple nbStepperPrevious>prev</button>
+    <button nbButton matRipple nbStepperNext>next</button>
+  </nb-step>
+  <nb-step [label]="labelThree">
+    <ng-template #labelThree>Third step</ng-template>
+    <h1 id="title" class="title">Description</h1>
+    <p class="sub-title">Kindly briefly describe what your company is into:</p>
+    <div class="form-control-group">
+      <textarea nbInput [(ngModel)]="user.description" #description="ngModel" id="input-name" name="description"
+        placeholder="Description" autofocus fullWidth fieldSize="large"
+        [status]="description.dirty ? (description.invalid  ? 'danger' : 'success') : 'basic'"
+        [attr.aria-invalid]="description.invalid && description.touched ? true : null" rows="6">
+      </textarea>
+    </div>
+    <button nbButton matRipple nbStepperPrevious>prev</button>
+    <button nbButton matRipple nbStepperNext>next</button>
+  </nb-step>
+  <nb-step [label]="labelFour">
+    <ng-template #labelFour>Fourth step</ng-template>
+    <h1 id="title" class="title">Summary</h1>
+    <p class="sub-title">Confirm details before submission:</p>
+    <nb-card-body>  
+        <span></span>
+      <input type="text" [(ngModel)]="user.brandName" nbInput fullWidth placeholder="Brand Name">
+      <div class="full-name-inputs">
+        <input type="text" nbInput fullWidth placeholder="Email" [(ngModel)]="user.email">
+        <input type="text" nbInput fullWidth placeholder="Phone" [(ngModel)]="user.phone">
+      </div>
+      <input type="text" [(ngModel)]="user.companyName" nbInput fullWidth placeholder="Company Name">
+      <textarea rows="5" nbInput fullWidth shape="round" placeholder="Description" [(ngModel)]="user.description"></textarea>
+    </nb-card-body>
+    <button nbButton matRipple nbStepperPrevious>prev</button>
+    <button nbButton matRipple disabled nbStepperNext>next</button>
+  </nb-step>
+</nb-stepper>

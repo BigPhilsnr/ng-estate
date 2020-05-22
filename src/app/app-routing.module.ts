@@ -7,6 +7,7 @@ import { NbRequestPasswordComponent,
   NbLoginComponent,
   NbAuthComponent,
   NbResetPasswordComponent } from './@theme/auth/public_api';
+import { EnrollComponent } from './@theme/auth/components/enroll/enroll.component';
 
 
 export const routes: Routes = [
@@ -42,6 +43,10 @@ export const routes: Routes = [
       {
         path: 'reset-password',
         component: NbResetPasswordComponent,
+      },
+      {
+        path: 'enroll',
+        component: EnrollComponent,
       },
     ],
   },

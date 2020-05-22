@@ -8,6 +8,7 @@ import { NbAuthSimpleToken, NbAuthTokenClass } from '../../services/token/token'
 import { NbAuthStrategyOptions } from '../auth-strategy-options';
 import { getDeepFromObject } from '../../helpers';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { environment } from '../../../../../environments/environment';
 
 export interface NbPasswordStrategyModule {
   alwaysFail?: boolean;
@@ -27,21 +28,21 @@ export interface NbPasswordStrategyReset extends NbPasswordStrategyModule {
 }
 
 export interface NbPasswordStrategyToken {
-  class?: NbAuthTokenClass,
-  key?: string,
-  getter?: Function,
+  class?: NbAuthTokenClass;
+  key?: string;
+  getter?: Function;
 }
 
 export interface NbPasswordStrategyMessage {
-  key?: string,
-  getter?: Function,
+  key?: string;
+  getter?: Function;
 }
 
 export class NbPasswordAuthStrategyOptions extends NbAuthStrategyOptions {
-  baseEndpoint? = '/api/auth/';
+  baseEndpoint ? = environment.apiBaseUrl;
   login?: boolean | NbPasswordStrategyModule = {
     alwaysFail: false,
-    endpoint: 'login',
+    endpoint: '/api/login',
     method: 'post',
     requireValidToken: true,
     redirect: {
@@ -49,15 +50,15 @@ export class NbPasswordAuthStrategyOptions extends NbAuthStrategyOptions {
       failure: null,
     },
     defaultErrors: ['Login/Email combination is not correct, please try again.'],
-    defaultMessages: ['You have been successfully logged in.'],
+    defaultMessages: ['Please wait logging you in..'],
   };
   register?: boolean | NbPasswordStrategyModule = {
     alwaysFail: false,
-    endpoint: 'register',
+    endpoint: '/api/register',
     method: 'post',
     requireValidToken: true,
     redirect: {
-      success: '/',
+      success: '/auth/login',
       failure: null,
     },
     defaultErrors: ['Something went wrong, please try again.'],

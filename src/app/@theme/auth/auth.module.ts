@@ -2,7 +2,7 @@ import { Injector, ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpRequest } from '@angular/common/http';
+import { HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import {
   NbAlertModule,
@@ -56,6 +56,11 @@ import { deepExtend } from './helpers';
 import { EstepsComponent } from './components/esteps/esteps.component';
 import { ThemeModule } from '../theme.module';
 import { LayoutRoutingModule } from '../../pages/layout/layout-routing.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { AuthInterceptor } from '../../services/auth/auth.interceptor';
+
 
 
 export function nbStrategiesFactory(options: NbAuthOptions, injector: Injector): NbAuthStrategy[] {
@@ -89,7 +94,9 @@ export function nbNoOpInterceptorFilter(req: HttpRequest<any>): boolean {
 
 @NgModule({
   imports: [
-
+    MatIconModule,
+    MatButtonModule,
+    MatSnackBarModule,
     FormsModule,
     ReactiveFormsModule,
     ThemeModule,
@@ -146,6 +153,11 @@ export class NbAuthModule {
         { provide: NB_AUTH_FALLBACK_TOKEN, useValue: NbAuthSimpleToken },
         { provide: NB_AUTH_INTERCEPTOR_HEADER, useValue: 'Authorization' },
         { provide: NB_AUTH_TOKEN_INTERCEPTOR_FILTER, useValue: nbNoOpInterceptorFilter },
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: AuthInterceptor,
+          multi: true,
+        },
         { provide: NbTokenStorage, useClass: NbTokenLocalStorage },
         NbAuthTokenParceler,
         NbAuthService,

@@ -10,7 +10,7 @@ import { Agent } from '../../models/agent';
 })
 export class EnrollService {
 
-  private url = `${environment.apiBaseUrl}/api/agency`;
+  private url = `${environment.apiBaseUrl}/api/agent`;
   constructor(private http: HttpClient) {
 
   }

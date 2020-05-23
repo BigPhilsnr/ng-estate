@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
 import { SmartTableData } from '../../../@core/data/smart-table';
@@ -58,6 +58,12 @@ export class SmartTableComponent {
   constructor(private service: SmartTableData) {
     const data = this.service.getData();
     this.source.load(data);
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+   const width = event.target.innerWidth;
+   console.log(width);
   }
 
   onDeleteConfirm(event): void {

@@ -44,7 +44,6 @@ export class NbAuthResult {
   }
 
   getErrors(): string[] {
-    console.log(this.response);
      this.errors.push(this.response.error.message);
     return this.errors.filter(val => !!val);
   }

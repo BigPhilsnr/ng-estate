@@ -69,8 +69,8 @@
       </div>
       <input type="text" [(ngModel)]="user.companyName" nbInput fullWidth placeholder="Company Name">
       <textarea rows="5" nbInput fullWidth shape="round" placeholder="Description" [(ngModel)]="user.description"></textarea>
+      <button fullWidth  (click)="enrollAgency(user)" mat-button> <mat-icon>thumb_up</mat-icon>save</button>
     </nb-card-body>
-    <button nbButton matRipple nbStepperPrevious>prev</button>
-    <button nbButton matRipple disabled nbStepperNext>next</button>
+    <button nbButton matRipple nbStepperPrevious >prev</button>
   </nb-step>
 </nb-stepper>

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EnrollService } from '../../services/enroll/enroll.service';
-import { error } from '@angular/compiler/src/util';
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 @Component({
   selector: 'ngx-esteps',
   templateUrl: './esteps.component.html',
@@ -14,6 +13,7 @@ export class EstepsComponent implements OnInit {
   secondForm: FormGroup;
   thirdForm: FormGroup;
   user: any = {};
+
 
   constructor(private fb: FormBuilder, private enrollService: EnrollService, private snackBar: MatSnackBar) {
   }
@@ -44,13 +44,15 @@ export class EstepsComponent implements OnInit {
     this.thirdForm.markAsDirty();
   }
 
-  enrollOrganization(data: any) {
+  enrollAgency(data: any) {
     this.enrollService.createAgency(data).subscribe(
       res => {
-      alert('Created');
+        this.snackBar.open('Agency saved');
     },
     error => {
-
+      console.log(error);
+     this.snackBar.open('Failed to save', 'Retry').onAction().subscribe(() => {
+       alert('hey'); });
     },
     );
   }

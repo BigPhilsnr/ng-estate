@@ -172,7 +172,7 @@ export class NbPasswordAuthStrategy extends NbAuthStrategy {
             this.getOption(`${module}.redirect.success`),
             [],
             this.getOption('messages.getter')(module, res, this.options),
-            new NbAuthSimpleToken(res, 'email'));
+            new NbAuthSimpleToken(res.body, 'email'));
         }),
         catchError((res) => {
           return this.handleResponseError(res, module);
@@ -201,7 +201,7 @@ export class NbPasswordAuthStrategy extends NbAuthStrategy {
             this.getOption(`${module}.redirect.success`),
             [],
             this.getOption('messages.getter')(module, res, this.options),
-            new NbAuthSimpleToken(res, 'email'));
+            new NbAuthSimpleToken(res.headers, 'email'));
         }),
         catchError((res) => {
           return this.handleResponseError(res, module);

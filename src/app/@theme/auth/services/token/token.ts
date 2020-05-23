@@ -136,7 +136,7 @@ export class NbAuthSimpleToken extends NbAuthToken {
    * @returns string
    */
   getValue(): string {
-    return this.token.token;
+    return this.token;
   }
 
   getOwnerStrategyName(): string {

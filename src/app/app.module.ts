@@ -6,12 +6,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import {NbPasswordAuthStrategy, NbAuthModule } from './@theme/auth/public_api';
+import {NbPasswordAuthStrategy, NbAuthModule, NbAuthService } from './@theme/auth/public_api';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { environment } from '../environments/environment';
 
 import {
@@ -24,7 +25,7 @@ import {
   NbWindowModule,
 
 } from '@nebular/theme';
-
+import { AuthInterceptor } from './@theme/auth/interceptors/auth.interceptor';
 
 
 
@@ -34,6 +35,7 @@ import {
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatSnackBarModule,
     AppRoutingModule,
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
@@ -59,6 +61,15 @@ import {
         },
      },
     }),
+  ],
+  providers: [
+    NbAuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+
   ],
   bootstrap: [AppComponent],
 })

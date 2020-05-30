@@ -26,11 +26,12 @@ import {
 
 } from '@nebular/theme';
 import { AuthInterceptor } from './@theme/auth/interceptors/auth.interceptor';
+import { TestComponent } from './test/test.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TestComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

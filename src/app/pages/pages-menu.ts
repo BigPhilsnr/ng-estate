@@ -2,238 +2,176 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
+    title: 'ANALYSIS',
+    group: true,
+  },
+  {
     title: 'Dashboard',
-    icon: 'shopping-cart-outline',
+    icon: 'pie-chart-outline',
     link: '/pages/dashboard',
     home: true,
   },
   {
-    title: 'IoT Dashboard',
-    icon: 'home-outline',
-    link: '/pages/iot-dashboard',
+    title: 'Summary',
+    icon: 'bar-chart-2-outline',
+    link: '/pages/summary',
   },
   {
-    title: 'FEATURES',
+    title: 'MANAGEMENT',
     group: true,
   },
   {
-    title: 'Layout',
-    icon: 'layout-outline',
+    title: 'Properties',
+    icon: 'home-outline',
     children: [
       {
-        title: 'Stepper',
-        link: '/pages/layout/stepper',
+        title: 'Housing units',
+        link: 'management/properties/housingunits',
       },
       {
-        title: 'List',
-        link: '/pages/layout/list',
-      },
-      {
-        title: 'Infinite List',
-        link: '/pages/layout/infinite-list',
-      },
-      {
-        title: 'Accordion',
-        link: '/pages/layout/accordion',
-      },
-      {
-        title: 'Tabs',
-        pathMatch: 'prefix',
-        link: '/pages/layout/tabs',
+        title: 'Land',
+        link: 'management/properties/land',
       },
     ],
   },
   {
-    title: 'Forms',
-    icon: 'edit-2-outline',
+    title: 'Contractors',
+    icon: 'pantone-outline',
+    link: 'management/contractors',
+  },
+  {
+    title: 'Client requests',
+    icon: 'layers-outline',
+    link: 'management/clientrequests',
+  },
+  {
+    title: 'ACCOUNTING',
+    group: true,
+  },
+  {
+    title: 'Accounts',
+    icon: 'briefcase-outline',
     children: [
       {
-        title: 'Form Inputs',
-        link: '/pages/forms/inputs',
+        title: 'BANK',
+        link: 'accounts/bank',
       },
       {
-        title: 'Form Layouts',
-        link: '/pages/forms/layouts',
-      },
-      {
-        title: 'Buttons',
-        link: '/pages/forms/buttons',
-      },
-      {
-        title: 'Datepicker',
-        link: '/pages/forms/datepicker',
+        title: 'WALLETS',
+        link: 'accounts/wallet',
+      }, {
+        title: 'M-PESA',
+        link: 'accounts/mpesa',
       },
     ],
   },
   {
-    title: 'UI Features',
-    icon: 'keypad-outline',
-    link: '/pages/ui-features',
+    title: 'Payments',
+    icon: 'credit-card-outline',
     children: [
       {
-        title: 'Grid',
-        link: '/pages/ui-features/grid',
+        title: 'Incoming',
+        link: 'accounting/payments/incoming',
       },
       {
-        title: 'Icons',
-        link: '/pages/ui-features/icons',
-      },
-      {
-        title: 'Typography',
-        link: '/pages/ui-features/typography',
-      },
-      {
-        title: 'Animated Searches',
-        link: '/pages/ui-features/search-fields',
+        title: 'Outgoing',
+        link: 'accounting/payment/outgoing',
       },
     ],
   },
   {
-    title: 'Modal & Overlays',
-    icon: 'browser-outline',
-    children: [
-      {
-        title: 'Dialog',
-        link: '/pages/modal-overlays/dialog',
-      },
-      {
-        title: 'Window',
-        link: '/pages/modal-overlays/window',
-      },
-      {
-        title: 'Popover',
-        link: '/pages/modal-overlays/popover',
-      },
-      {
-        title: 'Toastr',
-        link: '/pages/modal-overlays/toastr',
-      },
-      {
-        title: 'Tooltip',
-        link: '/pages/modal-overlays/tooltip',
-      },
-    ],
+    title: 'Invoices',
+    icon: 'file-text-outline',
+    link: 'accounting/invoices',
   },
   {
-    title: 'Extra Components',
-    icon: 'message-circle-outline',
-    children: [
-      {
-        title: 'Calendar',
-        link: '/pages/extra-components/calendar',
-      },
-      {
-        title: 'Progress Bar',
-        link: '/pages/extra-components/progress-bar',
-      },
-      {
-        title: 'Spinner',
-        link: '/pages/extra-components/spinner',
-      },
-      {
-        title: 'Alert',
-        link: '/pages/extra-components/alert',
-      },
-      {
-        title: 'Calendar Kit',
-        link: '/pages/extra-components/calendar-kit',
-      },
-      {
-        title: 'Chat',
-        link: '/pages/extra-components/chat',
-      },
-    ],
+    title: 'MAINTENANCE',
+    group: true,
   },
   {
-    title: 'Maps',
-    icon: 'map-outline',
-    children: [
-      {
-        title: 'Google Maps',
-        link: '/pages/maps/gmaps',
-      },
-      {
-        title: 'Leaflet Maps',
-        link: '/pages/maps/leaflet',
-      },
-      {
-        title: 'Bubble Maps',
-        link: '/pages/maps/bubble',
-      },
-      {
-        title: 'Search Maps',
-        link: '/pages/maps/searchmap',
-      },
-    ],
-  },
-  {
-    title: 'Charts',
-    icon: 'pie-chart-outline',
-    children: [
-      {
-        title: 'Echarts',
-        link: '/pages/charts/echarts',
-      },
-      {
-        title: 'Charts.js',
-        link: '/pages/charts/chartjs',
-      },
-      {
-        title: 'D3',
-        link: '/pages/charts/d3',
-      },
-    ],
-  },
-  {
-    title: 'Editors',
-    icon: 'text-outline',
-    children: [
-      {
-        title: 'TinyMCE',
-        link: '/pages/editors/tinymce',
-      },
-      {
-        title: 'CKEditor',
-        link: '/pages/editors/ckeditor',
-      },
-    ],
-  },
-  {
-    title: 'Tables & Data',
-    icon: 'grid-outline',
-    children: [
-      {
-        title: 'Smart Table',
-        link: '/pages/tables/smart-table',
-      },
-      {
-        title: 'Tree Grid',
-        link: '/pages/tables/tree-grid',
-      },
-    ],
-  },
-  {
-    title: 'Miscellaneous',
-    icon: 'shuffle-2-outline',
-    children: [
-      {
-        title: '404',
-        link: '/pages/miscellaneous/404',
-      },
-    ],
-  },
-  {
-    title: 'Auth',
+    title: 'Property',
     icon: 'lock-outline',
     children: [
       {
-        title: 'Login',
-        link: '/auth/login',
+        title: 'Work order',
+        link: 'maintenance/property/workorder',
       },
       {
-        title: 'Register',
-        link: '/auth/register',
+        title: 'Requests',
+        link: 'maintenance/property/requests',
       },
+    ],
+  },
+  {
+    title: 'Housing unit',
+    icon: 'lock-outline',
+    children: [
+      {
+        title: 'Work order',
+        link: 'maintenance/housingunit/workorder',
+      },
+      {
+        title: 'Requests',
+        link: 'maintenance/housingunit/requests',
+      },
+    ],
+  },
+  {
+    title: 'PEOPLE',
+    group: true,
+  },
+  {
+    title: 'Admins',
+    icon: 'person-done-outline',
+    link: 'people/admins',
+  },
+  {
+    title: 'LandLords',
+    icon: 'home-outline',
+    link: 'people/landlords',
+  },
+  {
+    title: 'Employees',
+    icon: 'person-outline',
+    link: 'people/employees',
+  },
+  {
+    title: 'Tenants',
+    icon: 'people-outline',
+    link: 'people/tenants',
+  },
+  {
+    title: 'REPORTING',
+    group: true,
+  },
+  {
+    title: 'Contracts',
+    icon: 'edit-2-outline',
+    link: 'reporting/contracts',
+  },
+  {
+    title: 'Notices',
+    icon: 'attach-outline',
+    link: 'reporting/notices',
+  },
+  {
+    title: 'Non-Compliance',
+    icon: 'file-outline',
+    link: 'reporting/noncompliance',
+  },
+  {
+    title: 'Prospects',
+    icon: 'gift-outline',
+    link: 'reporting/prospects',
+  },
+  {
+    title: 'USER',
+    group: true,
+  },
+  {
+    title: 'Account',
+    icon: 'lock-outline',
+    children: [
       {
         title: 'Request Password',
         link: '/auth/request-password',
@@ -241,6 +179,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Reset Password',
         link: '/auth/reset-password',
+      },
+      {
+        title: 'Log out',
+        link: '/auth/logout',
+
       },
     ],
   },

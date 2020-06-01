@@ -1,0 +1,86 @@
+@import '../../../../@theme/styles/themes';
+
+@include nb-install-component() {
+    nb-card {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .mat-form-field{
+      margin-right: 16px;
+  }
+
+.customer-content {
+  .table-header {
+    margin-top: 16px;
+    margin-left: 4px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .header {
+      display: flex;
+      align-items: left;
+    }
+
+    .search-bar {
+      display: flex;
+      .dc-search {
+        @media (min-width: 1920px) {
+          width: 302px;
+        }
+      }
+    }
+  }
+
+  .table-container {
+    border: 1px solid black;
+    margin-top: 8px;
+
+    table {
+      font-family: 'Raleway';
+      color: ligthb;
+      line-height: 17px !important;
+      width: 100%;
+
+      tr.mat-header-row {
+        background-color: black ;
+        height: 45px;
+        font-weight: bold;
+      }
+
+      tr.customer-row:hover {
+        background-color: black;
+      }
+
+      tr.customer-row.mat-footer-row,
+      tr.customer-row.mat-row {
+        height: 40px;
+        cursor: pointer;
+      }
+
+      .no-data-row {
+        height: 198px;
+
+        .no-data-cell {
+          text-align: center;
+        }
+          .no-data-cell > span {
+            display: block;
+            margin-top: 4px;
+          }
+          .no-data-cell > span.retry {
+            display: block;
+            color: green;
+            cursor: pointer;
+          }
+      }
+
+      th.mat-header-cell {
+        letter-spacing: 0.3px;
+      }
+
+     
+    }
+  }
+}

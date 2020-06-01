@@ -50,6 +50,11 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { SingleUnitComponent } from './app/management/property/single-unit/single-unit.component';
 import { ChartsModule } from './charts/charts.module';
 import { ChartModule } from 'angular2-chartjs';
+import { ContractReportingComponent } from './app/reporting/contracts/contract-reporting.component';
+import { TenantsPeopleComponent } from './app/people/tenants/tenants-people.component';
+import { EmployeePeopleComponent } from './app/people/employees/employee-people.component';
+import { LandlordPeopleComponent } from './app/people/landlords/landlord-people.component';
+import { AdminPeopleComponent } from './app/people/admins/admin-people.component';
 
 const materialModules = [
   MatFormFieldModule,
@@ -117,7 +122,13 @@ const materialModules = [
     IncomingPaymentsComponent,
     OutgoingPaymentsComponent,
     UnitPropertyManagementComponent,
+    ContractReportingComponent,
+    TenantsPeopleComponent,
+    EmployeePeopleComponent,
+    LandlordPeopleComponent,
     SingleUnitComponent,
+    AdminPeopleComponent,
+    PaymentComponent,
 
   ],
   providers: [CustomerService],

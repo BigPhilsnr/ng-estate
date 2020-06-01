@@ -55,7 +55,6 @@ import { EnrollComponent } from './components/enroll/enroll.component';
 import { deepExtend } from './helpers';
 import { EstepsComponent } from './components/esteps/esteps.component';
 import { ThemeModule } from '../theme.module';
-import { LayoutRoutingModule } from '../../pages/layout/layout-routing.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
@@ -107,7 +106,6 @@ export function nbNoOpInterceptorFilter(req: HttpRequest<any>): boolean {
     NbListModule,
     NbAccordionModule,
     NbUserModule,
-    LayoutRoutingModule,
     NbLayoutModule,
     NbCardModule,
     NbCheckboxModule,

@@ -6,7 +6,6 @@ import { PagesComponent } from './pages.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ECommerceModule } from './e-commerce/e-commerce.module';
 import { PagesRoutingModule } from './pages-routing.module';
-import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { AgencyModule } from './views/agency/agency.module';
 import { BankComponent } from './app/accounting/accounts/bank/bank.component';
 import { WalletComponent } from './app/accounting/accounts/wallet/wallet.component';
@@ -82,7 +81,6 @@ const materialModules = [
     NbMenuModule,
     DashboardModule,
     ECommerceModule,
-    MiscellaneousModule,
     AgencyModule,
     MatButtonModule,
     MatIconModule,
@@ -96,6 +94,7 @@ const materialModules = [
     MatFormFieldModule,
     MatDatepickerModule,
     ChartsModule,
+
   ...materialModules,
   ],
   declarations: [
@@ -129,6 +128,7 @@ const materialModules = [
     SingleUnitComponent,
     AdminPeopleComponent,
     PaymentComponent,
+    TblComponent,
 
   ],
   providers: [CustomerService],

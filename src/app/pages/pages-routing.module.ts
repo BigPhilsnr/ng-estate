@@ -32,6 +32,9 @@ import { ContractReportingComponent } from './app/reporting/contracts/contract-r
 import { NoticeReportingComponent } from './app/reporting/notices/notice-reporting.component';
 import { ComplianceReportingComponent } from './app/reporting/compliance/compliance-reporting.component';
 import { ProspectReportingComponent } from './app/reporting/prospects/prospect-reporting.component';
+import { TblComponent } from './tbl/tbl.component';
+import { EchartsComponent } from './charts/echarts/echarts.component';
+import { SingleUnitComponent } from './app/management/property/single-unit/single-unit.component';
 
 const routes: Routes = [{
   path: '',
@@ -51,11 +54,15 @@ const routes: Routes = [{
     },
     {
       path: 'summary',
-      component: SummaryComponent,
+      component: EchartsComponent,
     },
     {
       path: 'management/properties/housingunits',
       component: UnitPropertyManagementComponent,
+    },
+    {
+      path: 'management/properties/housingunits/unit',
+      component: SingleUnitComponent,
     },
     {
       path: 'management/properties/land',
@@ -75,7 +82,7 @@ const routes: Routes = [{
     },
     {
       path: 'accounting/accounts/wallet',
-      component: WalletComponent,
+      component: TblComponent,
     },
     {
       path: 'accounting/accounts/mpesa',

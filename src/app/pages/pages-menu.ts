@@ -58,10 +58,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
       {
         title: 'WALLETS',
-        link: 'accounts/wallet',
+        link: 'accounting/accounts/wallet',
       }, {
         title: 'M-PESA',
-        link: 'accounts/mpesa',
+        link: 'accounting/accounts/mpesa',
       },
     ],
   },

@@ -1,13 +1,9 @@
-@import '../../../../../@theme/styles/themes';
+@import '../../@theme/styles/themes';
 
 @include nb-install-component() {
     nb-card {
       transform: translate3d(0, 0, 0);
     }
-  }
-
-  .mat-form-field{
-      margin-right: 16px;
   }
 
 .customer-content {
@@ -44,9 +40,8 @@
       width: 100%;
 
       tr.mat-header-row {
-        background-color: black ;
-        height: 45px;
-        font-weight: bold;
+          background-color: color-primary-800 ;
+        height: 35px;
       }
 
       tr.customer-row:hover {

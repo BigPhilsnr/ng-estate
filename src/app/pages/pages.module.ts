@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NbMenuModule } from '@nebular/theme';
+import { NbMenuModule, NbCardBodyComponent, NbCardHeaderComponent, NbCardModule } from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
@@ -28,7 +28,47 @@ import { MaintananceUnitRequestComponent } from './app/maintanance/unit/request/
 import { MaintananceUnitWorkorderComponent } from './app/maintanance/unit/workorders/maintanance-unit-workorder.component';
 import { IncomingPaymentsComponent } from './app/accounting/payments/incoming/incoming-payments.component';
 import { OutgoingPaymentsComponent } from './app/accounting/payments/outgoing/outgoing-payments.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { StorageModule } from '../store/storage.module';
+import { TblComponent } from './tbl/tbl.component';
+import { CustomerService } from './customer-table/services/customer.service';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { UnitPropertyManagementComponent } from './app/management/property/unit/unit-property-management.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { SingleUnitComponent } from './app/management/property/single-unit/single-unit.component';
+import { ChartsModule } from './charts/charts.module';
+import { ChartModule } from 'angular2-chartjs';
 
+const materialModules = [
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
+  MatNativeDateModule,
+  MatDatepickerModule,
+  MatCheckboxModule,
+  MatSlideToggleModule,
+  MatRadioModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatButtonModule,
+  MatIconModule,
+  MatSortModule,
+  MatTableModule,
+  MatTooltipModule,
+  MatPaginatorModule,
+];
 
 @NgModule({
   imports: [
@@ -39,6 +79,19 @@ import { OutgoingPaymentsComponent } from './app/accounting/payments/outgoing/ou
     ECommerceModule,
     MiscellaneousModule,
     AgencyModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSortModule,
+    MatTableModule,
+    MatTooltipModule,
+    MatPaginatorModule,
+    StorageModule,
+    NbCardModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    ChartsModule,
+  ...materialModules,
   ],
   declarations: [
     PagesComponent,
@@ -63,7 +116,14 @@ import { OutgoingPaymentsComponent } from './app/accounting/payments/outgoing/ou
     MaintananceUnitWorkorderComponent,
     IncomingPaymentsComponent,
     OutgoingPaymentsComponent,
+    UnitPropertyManagementComponent,
+    SingleUnitComponent,
+
   ],
+  providers: [CustomerService],
+  exports: [ChartModule],
+
+
 })
 export class PagesModule {
 }

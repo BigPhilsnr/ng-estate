@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {NbPasswordAuthStrategy, NbAuthModule, NbAuthService } from './@theme/auth/public_api';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 import { environment } from '../environments/environment';
 
 import {
@@ -27,6 +28,7 @@ import {
 } from '@nebular/theme';
 import { AuthInterceptor } from './@theme/auth/interceptors/auth.interceptor';
 import { TestComponent } from './test/test.component';
+
 
 
 
@@ -47,6 +49,7 @@ import { TestComponent } from './test/test.component';
     NbChatModule.forRoot({
       messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
     }),
+
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     NbAuthModule.forRoot({

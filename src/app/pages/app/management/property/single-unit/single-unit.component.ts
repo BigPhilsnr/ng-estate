@@ -41,16 +41,11 @@ export class SingleUnitComponent implements OnInit {
   }
 
   getRecord(period: any) {
-    const url = '/pages/summary';
+    const url = '/pages/management/properties/housingunits/unit/room';
     this.router.navigateByUrl(url).then(e => {
-      if (e){
-        alert('navigated');
-      }else{
-        alert('navigation failed');
-      }
 
     });
-    alert(JSON.stringify(period));
+
   }
 
 }

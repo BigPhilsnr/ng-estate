@@ -30,6 +30,42 @@ import { PlayerComponent } from './rooms/player/player.component';
 import { TrafficComponent } from './traffic/traffic.component';
 import { TrafficChartComponent } from './traffic/traffic-chart.component';
 import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
+
+const materialModules = [
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
+  MatNativeDateModule,
+  MatDatepickerModule,
+  MatCheckboxModule,
+  MatSlideToggleModule,
+  MatRadioModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatButtonModule,
+  MatIconModule,
+  MatSortModule,
+  MatTableModule,
+  MatTooltipModule,
+  MatPaginatorModule,
+];
+
 
 @NgModule({
   imports: [
@@ -46,6 +82,22 @@ import { FormsModule } from '@angular/forms';
     NbIconModule,
     NbButtonModule,
     NgxEchartsModule,
+    MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
+  MatNativeDateModule,
+  MatDatepickerModule,
+  MatCheckboxModule,
+  MatSlideToggleModule,
+  MatRadioModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatButtonModule,
+  MatIconModule,
+  MatSortModule,
+  MatTableModule,
+  MatTooltipModule,
+  MatPaginatorModule,
   ],
   declarations: [
     DashboardComponent,

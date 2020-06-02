@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NbComponentStatus } from '@nebular/theme';
 
 
 
@@ -18,14 +19,12 @@ export class UnitPropertyManagementComponent implements OnInit {
       this.dataSource = ELEMENT_DATA;
   }
 
+  public readonly statuses: NbComponentStatus[] = [ 'primary', 'success', 'info', 'warning', 'danger' ];
+
   getRecord(period: any) {
     const url = 'pages/management/properties/housingunits/unit';
     this.router.navigateByUrl(url).then(e => {
-      if (e) {
-        alert('navigated');
-      }else {
-       alert('navigation failed');
-      }
+
 
     });
 

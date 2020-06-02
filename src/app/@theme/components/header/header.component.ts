@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
   public readonly materialTheme$: Observable<boolean>;
   userPictureOnly: boolean = false;
-  user: any;
+  user: any = {name: 'Philip'};
 
   themes = [
     {

@@ -3,12 +3,41 @@
 @include nb-install-component() {
     nb-card {
       transform: translate3d(0, 0, 0);
+      .buttons-row {
+        margin: -0.5rem;
+      }
+    
+      button[nbButton] {
+        margin: 0.5rem;
+      }
+    
+      .action-icon {
+        @include nb-ltr(margin-right, 0.5rem);
+        @include nb-rtl(margin-left, 0.5rem);
+      }
+    
+      .actions-card {
+        height: 8rem;
+      }
+    
+      nb-action {
+        border-radius: 2px;
+        cursor: pointer;
+      }
     }
   }
 
+  .btn{
+    float: right;
+    margin: 8px;
+  }
+.input-example{
+    width: 100%;
+}
   .mat-form-field{
       margin-right: 16px;
   }
+
 
 .customer-content {
   .table-header {
@@ -44,7 +73,7 @@
       width: 100%;
 
       tr.mat-header-row {
-        background-color: black ;
+        background-color: #1f1f1f ;
         height: 45px;
         font-weight: bold;
       }

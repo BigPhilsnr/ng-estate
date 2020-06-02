@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NbMenuModule, NbCardBodyComponent, NbCardHeaderComponent, NbCardModule } from '@nebular/theme';
+import { NbMenuModule, NbCardBodyComponent, NbCardHeaderComponent, NbCardModule, NbButtonModule, NbActionsModule, NbCheckboxModule, NbDatepickerModule, NbIconModule, NbInputModule, NbRadioModule, NbSelectModule, NbUserModule } from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
@@ -54,6 +54,7 @@ import { TenantsPeopleComponent } from './app/people/tenants/tenants-people.comp
 import { EmployeePeopleComponent } from './app/people/employees/employee-people.component';
 import { LandlordPeopleComponent } from './app/people/landlords/landlord-people.component';
 import { AdminPeopleComponent } from './app/people/admins/admin-people.component';
+import { RoomSingleComponent } from './app/management/property/room/room/room.component';
 
 const materialModules = [
   MatFormFieldModule,
@@ -94,7 +95,15 @@ const materialModules = [
     MatFormFieldModule,
     MatDatepickerModule,
     ChartsModule,
-
+    NbButtonModule,
+    NbActionsModule,
+  NbButtonModule,
+  NbCheckboxModule,
+  NbDatepickerModule, NbIconModule,
+  NbInputModule,
+  NbRadioModule,
+  NbSelectModule,
+  NbUserModule,
   ...materialModules,
   ],
   declarations: [
@@ -129,6 +138,7 @@ const materialModules = [
     AdminPeopleComponent,
     PaymentComponent,
     TblComponent,
+    RoomSingleComponent,
 
   ],
   providers: [CustomerService],

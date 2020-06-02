@@ -34,6 +34,7 @@ import { ProspectReportingComponent } from './app/reporting/prospects/prospect-r
 import { TblComponent } from './tbl/tbl.component';
 import { EchartsComponent } from './charts/echarts/echarts.component';
 import { SingleUnitComponent } from './app/management/property/single-unit/single-unit.component';
+import { RoomSingleComponent } from './app/management/property/room/room/room.component';
 
 const routes: Routes = [{
   path: '',
@@ -62,6 +63,10 @@ const routes: Routes = [{
     {
       path: 'management/properties/housingunits/unit',
       component: SingleUnitComponent,
+    },
+    {
+      path: 'management/properties/housingunits/unit/room',
+      component: RoomSingleComponent,
     },
     {
       path: 'management/properties/land',

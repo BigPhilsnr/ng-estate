@@ -7,6 +7,7 @@ export function customerReducer(state = initialCustomerState, action: CustomerAc
       return { ...state, loading: true };
     }
     case CustomerActionType.LoadSuccess: {
+      console.log(action.payload.customers);
       return customerAdapter.addAll(action.payload.customers, {
         ...state,
         error: false,

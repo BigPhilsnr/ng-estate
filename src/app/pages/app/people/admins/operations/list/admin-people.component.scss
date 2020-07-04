@@ -1,14 +1,34 @@
-@import '../../../../@theme/styles/themes';
+@import '../../../../../../@theme/styles/themes.scss';
+
 
 @include nb-install-component() {
-    nb-card {
-      transform: translate3d(0, 0, 0);
-    }
+  nb-card {
+    transform: translate3d(0, 0, 0);
   }
+}
 
-  .mat-form-field{
-      margin-right: 16px;
-  }
+.mat-form-field {
+  margin-right: 16px;
+  font-family: 'Raleway';
+}
+
+.btn {
+  font-family: 'Raleway';
+  font-weight: bolder;
+
+  padding:5px;
+  margin-left: 16px;
+  padding-right: 20px;
+
+}
+
+.input-example {
+  width: 100%;
+}
+
+.mat-form-field {
+  margin-right: 16px;
+}
 
 .customer-content {
   .table-header {
@@ -25,12 +45,31 @@
 
     .search-bar {
       display: flex;
+
       .dc-search {
         @media (min-width: 1920px) {
           width: 302px;
         }
       }
     }
+  }
+
+ 
+
+  td {
+    padding: 10px;
+  }
+
+  .btn {
+    float: right;
+  }
+
+  .input-example {
+    width: 100%;
+  }
+
+  .mat-form-field {
+    margin-right: 16px;
   }
 
   .table-container {
@@ -44,13 +83,13 @@
       width: 100%;
 
       tr.mat-header-row {
-        background-color: black ;
+        background-color: #404040;
         height: 45px;
-        font-weight: bold;
+        font-weight: bolder;
       }
 
       tr.customer-row:hover {
-        background-color: black;
+        background-color: #404040;
       }
 
       tr.customer-row.mat-footer-row,
@@ -64,23 +103,27 @@
 
         .no-data-cell {
           text-align: center;
+
         }
-          .no-data-cell > span {
-            display: block;
-            margin-top: 4px;
-          }
-          .no-data-cell > span.retry {
-            display: block;
-            color: green;
-            cursor: pointer;
-          }
+
+        .no-data-cell>span {
+          display: block;
+          margin-top: 4px;
+        }
+
+        .no-data-cell>span.retry {
+          display: block;
+          color: green;
+          cursor: pointer;
+        }
       }
 
       th.mat-header-cell {
         letter-spacing: 0.3px;
+
       }
 
-     
+
     }
   }
 }

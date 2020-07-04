@@ -4,7 +4,27 @@
     nb-card {
       transform: translate3d(0, 0, 0);
     }
+    ngx-echarts-pie,
+    ngx-chartjs-pie,
+    ngx-chartjs-bar,
+    ngx-chartjs-line,
+    ngx-chartjs-multiple-xaxis,
+    ngx-chartjs-bar-horizontal,
+    ngx-chartjs-radar {
+      display: block;
+      height: nb-theme(card-height-medium);
+      width: 100%;
+  
+      ::ng-deep chart {
+        display: block;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    
   }
+
+ 
 
   .btn{
     float: right;
@@ -38,6 +58,11 @@
       }
     }
   }
+  tr.mat-header-row {
+    background-color: #1f1f1f ;
+    height: 45px;
+    font-weight: bold;
+  }
 
   .table-container {
     border: 1px solid black;
@@ -49,11 +74,7 @@
       line-height: 17px !important;
       width: 100%;
 
-      tr.mat-header-row {
-        background-color: #1f1f1f ;
-        height: 45px;
-        font-weight: bold;
-      }
+     
 
       tr.customer-row:hover {
         background-color: black;

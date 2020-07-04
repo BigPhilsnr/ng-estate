@@ -10,13 +10,11 @@ import { TrafficChartData } from '../../../@core/data/traffic-chart';
   template: `
     <nb-card size="tiny">
       <nb-card-header>
-        <span>Traffic Consumption</span>
-
+        <span>Repair expenses</span>
         <nb-select matRipple [(selected)]="type">
           <nb-option matRipple *ngFor="let t of types" [value]="t">{{ t }}</nb-option>
         </nb-select>
       </nb-card-header>
-
       <ngx-traffic-chart [points]="trafficChartPoints"></ngx-traffic-chart>
     </nb-card>
   `,

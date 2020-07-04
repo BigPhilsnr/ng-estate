@@ -1,0 +1,187 @@
+<div class="row">
+  <div class="col-md-12 col-lg-12 col-xxxl-12">
+    <nb-card>
+      <nb-card-header>Create Admin user</nb-card-header>
+      <nb-card-body>
+        <form class="form-form" [formGroup]="form">
+          <div class="row">
+
+            <div class="col-md-6 col-lg-6 col-xxxl-6">
+              <mat-form-field class="input-example">
+                <input matInput spellcheck="false" placeholder="Full name" formControlName="fullName"  > 
+                <mat-hint>
+                  FullName allowed characters are letters and numbers only. No spaces.
+                </mat-hint>
+                <mat-error>
+                  {{ formErrors['fullName'] }}
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="input-example" style="margin-bottom: 20px;">
+                <input matInput #email spellcheck="false" placeholder="Email" formControlName="email">
+                <mat-hint>
+                  Email will never be shared or sold.
+                </mat-hint>
+                <mat-error>
+                  {{ formErrors['email'] }}
+                </mat-error>
+              </mat-form-field>
+              <div class="input-example" style="margin-bottom: 16px;">
+                <mat-radio-group aria-label="Select an option" class="input-example" style="margin-top: 16px;"
+                  formControlName="gender">
+                  <mat-radio-button value="MALE" style="margin-right: 8px;">MALE</mat-radio-button>
+                  <mat-radio-button value="FEMALE">FEMALE</mat-radio-button>
+                </mat-radio-group>
+
+              </div>
+
+              <mat-chip-list aria-label="Priveledges">
+                <mat-chip color="success" selected style="background-color: darkgreen;">READ</mat-chip>
+                <mat-chip color="success" selected style="background-color: orange;">WRITE</mat-chip>
+                <mat-chip color="success" selected style="background-color: red;">DELETE</mat-chip>
+              </mat-chip-list>
+
+            </div>
+
+            <div class="col-md-6 col-lg-6 col-xxxl-6">
+
+              <mat-form-field class="input-example">
+                <input matInput spellcheck="false" placeholder="Phone Number" formControlName="phone">
+                <mat-hint>
+                  Phone allowed numbers are letters and numbers only. No spaces.
+                </mat-hint>
+                <mat-error>
+                  {{ formErrors['Phone'] }}
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field class="input-example">
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="status">
+                  <mat-option *ngFor="let option of options" [value]="option.value">
+                    {{option.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+
+              <mat-form-field class="input-example">
+                <mat-label>Date osf birth</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dob">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+
+              <div class="input-example row" >
+                <div class="update" *ngIf="!currentAdmin">
+                  <button mat-flat-button type="button" class="btn" mat-raised-button color="primary"
+                    (click)="registerAdmin()">
+                    <mat-icon>how_to_reg</mat-icon> Create new
+                  </button>
+
+                </div>
+
+                <div class="update" *ngIf="currentAdmin">
+                  <button mat-flat-button type="button" class="btn" mat-raised-button style="background-color:darkgoldenrod;"
+                    (click)="clearForm()">
+                    <mat-icon>clear_all</mat-icon> Clear Form
+                  </button>
+                </div>
+
+
+                <div class="update" *ngIf="currentAdmin">
+                  <button mat-flat-button type="button" class="btn" mat-raised-button style="background-color:darkgreen;"
+                    (click)="updateAdmin()">
+                    <mat-icon>create</mat-icon> Update Admin
+                  </button>
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12 col-lg-12 col-xxxl-12">
+    <nb-card>
+      <nb-card-header> Admin Users</nb-card-header>
+      <nb-card-body>
+        <div class="customer-content">
+
+          <div class="table-header">
+            <div class="search-bar">
+              <mat-form-field class="example-full-width">
+                <mat-label>Search admin user</mat-label>
+                <input matInput placeholder="Search" class="dc-search" (keyup)="filterSubject.next($event.target.value)"
+                  value="">
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table mat-table [dataSource]="dataSource" matSort matSortDisableClear="true"
+              [matSortActive]="defaultSort.active" [matSortDirection]="defaultSort.direction">
+              <ng-container matColumnDef="Name">
+                <th mat-header-cell class="dc-label" *matHeaderCellDef mat-sort-header>Name</th>
+                <td mat-cell class="dc-content" *matCellDef="let element">{{element.user.fullName}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Phone">
+                <th mat-header-cell class="dc-label" *matHeaderCellDef mat-sort-header>Phone</th>
+                <td mat-cell class="dc-content" *matCellDef="let element"> {{element.user.phone}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="CreatedAt">
+                <th mat-header-cell class="dc-label" *matHeaderCellDef mat-sort-header>CreatedAt</th>
+                <td mat-cell class="dc-content" *matCellDef="let element"> {{ element.createdAt | date }} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Actions">
+                <th mat-header-cell class="dc-label" *matHeaderCellDef mat-sort-header>Status</th>
+                <td mat-cell class="dc-content" *matCellDef="let element">
+                  <mat-chip-list aria-label="Fish selection">
+                    <mat-chip [ngStyle]="{'background-color':element.status === 'ACTIVE' ? 'green' : 'red' }" selected class="chip">{{element.status}}</mat-chip>
+                  </mat-chip-list>
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="noData">
+                <td mat-cell class="dc-label no-data-cell" *matCellDef="let element"
+                  [attr.colspan]="displayedColumns.length">
+                  <ng-container *ngIf="!(error$ | async) && !loading">
+                    <span class="dc-content">No Admin users</span>
+                  </ng-container>
+                  <ng-container *ngIf="(error$ | async) && !loading">
+                    <span class="dc-label">System Failure</span>
+                    <span class="dc-content">Error</span>
+                    <span class="retry" (click)="retry()">Retry</span>
+                  </ng-container>
+                  <ng-container *ngIf="loading">
+                    <span class="dc-label">Retrieving data...</span>
+                  </ng-container>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns, sticky: true"></tr>
+              <ng-container *ngIf="adminTotal && !loading">
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="customer-row"
+                  (click)="selectAdmin(row)"></tr>
+              </ng-container>
+              <ng-container *ngIf="!adminTotal || loading">
+                <tr mat-row *matRowDef="let row; columns: ['noData'];" class="no-data-row"></tr>
+              </ng-container>
+            </table>
+
+            <mat-paginator [length]="adminTotal" [pageSize]="10" [pageSizeOptions]="[3, 5, 10]"></mat-paginator>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>

@@ -55,7 +55,39 @@ import { EarningCardBackComponent } from './earning-card/back-side/earning-card-
 import { EarningPieChartComponent } from './earning-card/back-side/earning-pie-chart.component';
 import { EarningCardFrontComponent } from './earning-card/front-side/earning-card-front.component';
 import { EarningLiveUpdateChartComponent } from './earning-card/front-side/earning-live-update-chart.component';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatPaginatorModule } from '@angular/material/paginator';
+const materialModules = [
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
+  MatNativeDateModule,
+  MatDatepickerModule,
+  MatCheckboxModule,
+  MatSlideToggleModule,
+  MatRadioModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatButtonModule,
+  MatIconModule,
+  MatSortModule,
+  MatTableModule,
+  MatTooltipModule,
+  MatPaginatorModule,
+];
 @NgModule({
   imports: [
     ThemeModule,
@@ -70,7 +102,7 @@ import { EarningLiveUpdateChartComponent } from './earning-card/front-side/earni
     NbProgressBarModule,
     NgxEchartsModule,
     NgxChartsModule,
-    LeafletModule,
+    LeafletModule, ...materialModules,
   ],
   declarations: [
     ECommerceComponent,

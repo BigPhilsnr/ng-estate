@@ -1,6 +1,6 @@
 import { Customer } from './customer';
 
 export interface CustomerResponse {
-  total: number,
-  customers: Customer[]
+  total: number;
+  customers: Customer[];
 }

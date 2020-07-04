@@ -17,8 +17,8 @@ export class ElectricityComponent implements OnDestroy {
   listData: Electricity[];
   chartData: ElectricityChart[];
 
-  type = 'week';
-  types = ['week', 'month', 'year'];
+  type = 'April';
+  types = ['January', 'February', 'March', 'April'];
 
   currentTheme: string;
   themeSubscription: any;

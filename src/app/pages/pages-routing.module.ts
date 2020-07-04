@@ -23,7 +23,7 @@ import { MaintananceUnitRequestComponent } from './app/maintanance/unit/request/
 // tslint:disable-next-line: import-spacing
 import { MaintananceUnitWorkorderComponent }
 from './app/maintanance/unit/workorders/maintanance-unit-workorder.component';
-import { AdminPeopleComponent } from './app/people/admins/admin-people.component';
+import { AdminPeopleComponent } from './app/people/admins/operations/list/admin-people.component';
 import { LandlordPeopleComponent } from './app/people/landlords/landlord-people.component';
 import { EmployeePeopleComponent } from './app/people/employees/employee-people.component';
 import { TenantsPeopleComponent } from './app/people/tenants/tenants-people.component';

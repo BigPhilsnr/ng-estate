@@ -8,15 +8,16 @@
 @import '~@nebular/theme/styles/core/mixins';
 
 $theme: (
-  color-primary-100: #e8cbfe,
-  color-primary-200: #ce97fd,
-  color-primary-300: #ae63f9,
-  color-primary-400: #903df4,
-  color-primary-500: #6200ee,
-  color-primary-600: #4b00cc,
-  color-primary-700: #3800ab,
+  color-primary-100: #C5CAE9,
+  color-primary-200: #9FA8DA,
+  color-primary-300: #7986CB,
+  color-primary-400: #5C6BC0,
+  color-primary-500: #3F51B5,
+  color-primary-600: #3949AB,
+  color-primary-700: #303F9F,
   color-primary-800: #27008a,
-  color-primary-900: #1b0072,
+  color-primary-900: #1A237E,
+  color-primary-1000: #3f51b5,
 
   color-primary-transparent-100: rgba(98, 0, 238, 0.08),
   color-primary-transparent-200: rgba(98, 0, 238, 0.16),
@@ -369,8 +370,8 @@ $theme: (
     '0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12)'
   ),
 
-  header-background-color: color-basic-800,
-  footer-background-color: color-primary-default,
+  header-background-color: color-primary-1000,
+  footer-background-color: color-primary-1000,
   header-text-color: text-alternate-color,
   footer-text-color: text-alternate-color,
   footer-text-highlight-color: footer-text-color,

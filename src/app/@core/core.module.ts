@@ -32,7 +32,6 @@ import { CountryOrderData } from './data/country-order';
 import { StatsProgressBarData } from './data/stats-progress-bar';
 import { VisitorsAnalyticsData } from './data/visitors-analytics';
 import { SecurityCamerasData } from './data/security-cameras';
-
 import { UserService } from './mock/users.service';
 import { ElectricityService } from './mock/electricity.service';
 import { SmartTableService } from './mock/smart-table.service';

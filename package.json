@@ -49,6 +49,7 @@
     "@nebular/theme": "5.0.0",
     "@ngrx/effects": "^9.2.0",
     "@ngrx/entity": "^9.2.0",
+    "@ngrx/schematics": "^9.2.0",
     "@ngrx/store": "^9.2.0",
     "@ngrx/store-devtools": "^9.2.0",
     "@swimlane/ngx-charts": "^13.0.2",

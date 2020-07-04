@@ -12,8 +12,8 @@ export class UserService extends UserData {
   private time: Date = new Date;
 
   private user = {
-    name: localStorage.getItem('username'),
-    email: localStorage.getItem('email'),
+    name: JSON.parse(localStorage.getItem('auth_app_token')).value.user.fullName ,
+    email: JSON.parse(localStorage.getItem('auth_app_token')).value.user.email,
     role: localStorage.getItem('role'),
     roleId: localStorage.getItem('roleId'),
     picture: localStorage.getItem('avatar') ? localStorage.getItem('avatar') : 'assets/images/kitten.dark.png',

@@ -117,5 +117,6 @@ const materialModules = [
     TrafficComponent,
     TrafficChartComponent,
   ],
+  exports: [DashboardComponent],
 })
 export class DashboardModule { }

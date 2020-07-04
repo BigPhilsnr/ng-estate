@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
-import { NbMenuModule, NbCardBodyComponent, NbCardHeaderComponent, NbCardModule, NbButtonModule, NbActionsModule, NbCheckboxModule, NbDatepickerModule, NbIconModule, NbInputModule, NbRadioModule, NbSelectModule, NbUserModule } from '@nebular/theme';
+import { NbMenuModule,
+  NbCardBodyComponent,
+   NbCardHeaderComponent,
+   NbCardModule, NbButtonModule,
+   NbActionsModule,
+    NbCheckboxModule, NbDatepickerModule, NbIconModule, NbInputModule, NbRadioModule, NbSelectModule, NbUserModule } from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
@@ -53,8 +58,12 @@ import { ContractReportingComponent } from './app/reporting/contracts/contract-r
 import { TenantsPeopleComponent } from './app/people/tenants/tenants-people.component';
 import { EmployeePeopleComponent } from './app/people/employees/employee-people.component';
 import { LandlordPeopleComponent } from './app/people/landlords/landlord-people.component';
-import { AdminPeopleComponent } from './app/people/admins/admin-people.component';
+import { AdminPeopleComponent } from './app/people/admins/operations/list/admin-people.component';
 import { RoomSingleComponent } from './app/management/property/room/room/room.component';
+import { EditorsModule } from './editors/editors.module';
+import { CKEditorModule } from 'ng2-ckeditor';
+import { PeopleModule } from './app/people/module/people.module';
+import { AdminDetailComponent } from './app/people/admins/operations/admin-detail/admin-detail.component';
 
 const materialModules = [
   MatFormFieldModule,
@@ -104,7 +113,12 @@ const materialModules = [
   NbRadioModule,
   NbSelectModule,
   NbUserModule,
+  DashboardModule,
+  EditorsModule,
+  CKEditorModule,
+  PeopleModule,
   ...materialModules,
+
   ],
   declarations: [
     PagesComponent,
@@ -135,10 +149,10 @@ const materialModules = [
     EmployeePeopleComponent,
     LandlordPeopleComponent,
     SingleUnitComponent,
-    AdminPeopleComponent,
     PaymentComponent,
     TblComponent,
     RoomSingleComponent,
+    AdminDetailComponent,
 
   ],
   providers: [CustomerService],

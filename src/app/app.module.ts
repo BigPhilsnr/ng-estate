@@ -28,12 +28,10 @@ import {
 } from '@nebular/theme';
 import { AuthInterceptor } from './@theme/auth/interceptors/auth.interceptor';
 import { TestComponent } from './test/test.component';
-
-
-
+import { DisablerDirective } from './disabler.directive';
 
 @NgModule({
-  declarations: [AppComponent, TestComponent],
+  declarations: [AppComponent, TestComponent, DisablerDirective],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

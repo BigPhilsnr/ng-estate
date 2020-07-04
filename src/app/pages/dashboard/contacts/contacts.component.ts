@@ -23,8 +23,8 @@ export class ContactsComponent implements OnDestroy {
     )
       .pipe(takeWhile(() => this.alive))
       .subscribe(([contacts, recent]: [Contacts[], RecentUsers[]]) => {
-        this.contacts = contacts;
-        this.recent = recent;
+        this.contacts = contacts.slice(1, 3);
+        this.recent = recent.slice(1, 3);
       });
   }
 

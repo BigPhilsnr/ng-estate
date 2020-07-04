@@ -8,7 +8,7 @@ import 'ckeditor';
   template: `
     <nb-card>
       <nb-card-header>
-        CKEditor
+        Description
       </nb-card-header>
       <nb-card-body>
         <ckeditor [config]="{ extraPlugins: 'divarea', height: '320' }"></ckeditor>

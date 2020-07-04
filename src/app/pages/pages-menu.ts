@@ -27,6 +27,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Housing units',
         link: 'management/properties/housingunits',
+        group: false,
       },
       {
         title: 'Land',
@@ -64,6 +65,31 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: 'accounting/accounts/mpesa',
       },
     ],
+
+  },
+  {
+    title: 'Reports',
+    icon: 'printer-outline',
+    children: [
+      {
+        title: 'Balance Sheet',
+        link: 'accounts/bank',
+      },
+      {
+        title: 'Profit & Loss',
+        link: 'accounting/accounts/wallet',
+      },
+       {
+        title: 'General ledger',
+        link: 'accounting/accounts/mpesa',
+      },
+      {
+        title: 'Trial Balance',
+        link: 'accounting/accounts/mpesa',
+      },
+
+    ],
+
   },
   {
     title: 'Payments',

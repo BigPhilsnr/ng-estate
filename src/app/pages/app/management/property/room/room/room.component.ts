@@ -17,7 +17,7 @@ export class RoomSingleComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  selected = 'option3';
   statuses: Status[] = [
     {value: 'VACCANT', viewValue: 'VACCANT'},
     {value: 'BOOKED', viewValue: 'BOOKED'},

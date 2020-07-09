@@ -10,7 +10,7 @@ import { GlobalState } from '../../../../../../store/states/global.state';
 // tslint:disable-next-line: max-line-length
 import { selectAllAdmin, selectAdminTotal, selectAdminLoading, selectAdminError } from '../../store/admin.selectors';
 import { debounceTime, distinctUntilChanged, tap } from 'rxjs/operators';
-import { AdminLoadAction, AdminInsertAction, AdminUpdateAction } from '../../store/admin.actions';
+import { AdminLoadAction, AdminInsertAction, AdminUpdateAction, AdminDeleteAction } from '../../store/admin.actions';
 import { AdminParams } from '../../models/admin-params';
 import { Admin } from '../../models/admin';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -26,9 +26,7 @@ export class AdminPeopleComponent extends FormComponentBase  implements OnInit, 
 
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
-  @Directive({
-    selector: '[disableControl]',
-  })
+
 
   public displayedColumns: string[] = ['Name', 'Phone', 'CreatedAt', 'Actions'];
   public dataSource: MatTableDataSource<Admin>;
@@ -38,7 +36,6 @@ export class AdminPeopleComponent extends FormComponentBase  implements OnInit, 
   public error$: Observable<boolean>;
   public filterSubject = new Subject<string>();
   public defaultSort: Sort = { active: 'name', direction: 'asc' };
-
   private filter: string = '';
   private admin: Admin = <Admin>{};
   private subscription: Subscription = new Subscription();
@@ -53,6 +50,7 @@ export class AdminPeopleComponent extends FormComponentBase  implements OnInit, 
   public currentAdmin: Admin;
   public form: FormGroup;
   public hidePassword: boolean = true;
+  public disable: boolean = false;
 
   @ViewChild('email') firstItem: ElementRef;
 
@@ -60,10 +58,9 @@ export class AdminPeopleComponent extends FormComponentBase  implements OnInit, 
     super();
     this.validationMessages = {
       fullName: {
-        required: 'User name is required.',
+        required: 'Full name is required.',
         minlength: 'User name minimum length is 6.',
         maxlength: 'User name maximum length is 15.',
-        pattern: 'User name minimum length 6, allowed characters letters, numbers only. No spaces.',
       },
       email: {
         required: 'Email is required.',
@@ -115,7 +112,7 @@ export class AdminPeopleComponent extends FormComponentBase  implements OnInit, 
 
   public ngOnInit(): void {
     this.store.pipe(select(selectAllAdmin)).subscribe(admins => this.initializeData(admins));
-    this.store.pipe(select(selectAdminTotal)).subscribe(total => this.adminTotal = total);
+    this.store.pipe(select(selectAdminTotal)).subscribe(total => this.checkPaginator(total));
     this.subscription.add(this.store.pipe(select(selectAdminLoading)).subscribe(loading => {
       if (loading) {
         this.dataSource = new MatTableDataSource(this.noData);
@@ -126,14 +123,10 @@ export class AdminPeopleComponent extends FormComponentBase  implements OnInit, 
 
   }
 
-  public selectAdmin(admin: Admin): void {
-    this.currentAdmin = admin;
-    this.form.patchValue(admin.user);
-  }
+  private checkPaginator(total: number){
+    this.adminTotal = total;
 
-  public clearForm() {
-    this.form.reset();
-    this.currentAdmin = null;
+
   }
 
   public ngAfterViewInit(): void {
@@ -157,6 +150,17 @@ export class AdminPeopleComponent extends FormComponentBase  implements OnInit, 
     ).subscribe());
   }
 
+  public selectAdmin(admin: Admin, el: HTMLElement): void {
+    this.currentAdmin = admin;
+    this.form.patchValue(admin.user);
+    el.scrollIntoView();
+  }
+
+  public clearForm() {
+    this.form.reset();
+    this.currentAdmin = null;
+  }
+
   public updateAdmin() {
     if (this.currentAdmin) {
       this.store.dispatch(new AdminUpdateAction(
@@ -171,15 +175,15 @@ export class AdminPeopleComponent extends FormComponentBase  implements OnInit, 
 
   public deleteAdmin() {
     if (this.currentAdmin) {
-      this.admin._id = this.currentAdmin._id;
-      this.store.dispatch(new AdminUpdateAction(
+      this.store.dispatch(new AdminDeleteAction(
         <AdminParams>{
-          admin: this.admin,
+          admin: {_id: this.currentAdmin._id},
         },
       ));
 
       return;
     }
+
   }
 
   registerAdmin(): void {

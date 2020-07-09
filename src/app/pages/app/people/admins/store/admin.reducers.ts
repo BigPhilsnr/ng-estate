@@ -14,7 +14,8 @@ export function adminReducer(state = initialAdminState, action: AdminAction): Ad
         ...state,
         error: false,
         loading: false,
-        total: action.payload.admins.totalPages,
+        page: action.payload.admins.page,
+        total: action.payload.admins.totalDocs,
       });
     }
     case AdminActionType.DeleteLoading:
@@ -37,6 +38,9 @@ export function adminReducer(state = initialAdminState, action: AdminAction): Ad
       });
     }
 
+    case AdminActionType.DeleteSuccess: {
+      return adminAdapter.removeOne(action.payload.admin._id, state);
+    }
     case AdminActionType.LoadFailure: {
       return adminAdapter.removeAll({
         ...state,

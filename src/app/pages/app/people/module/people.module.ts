@@ -16,11 +16,15 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
+import { DisableControlDirective } from '../../../../@theme/directives/diable-control';
+import { EditTenantComponent } from '../tenants/edit/edit-tenant.component';
+import { TenantDetailComponent } from '../tenants/detail/tenant-detail.component';
+import { TenantService } from '../tenants/services/tenant.service';
 
 
 
 @NgModule({
-  declarations: [AdminPeopleComponent],
+  declarations: [AdminPeopleComponent, DisableControlDirective,  EditTenantComponent, TenantDetailComponent ],
   imports: [
     CommonModule,
     MatInputModule,
@@ -37,7 +41,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatSelectModule,
     ReactiveFormsModule,
     MatRadioModule,
+
   ],
-  providers: [AdminService],
+  providers: [AdminService,TenantService],
 })
 export class PeopleModule { }

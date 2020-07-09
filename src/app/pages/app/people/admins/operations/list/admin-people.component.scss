@@ -15,9 +15,8 @@
 .btn {
   font-family: 'Raleway';
   font-weight: bolder;
-
   padding:5px;
-  margin-left: 16px;
+  margin: 16px;
   padding-right: 20px;
 
 }
@@ -62,6 +61,7 @@
 
   .btn {
     float: right;
+    width: 200px;
   }
 
   .input-example {

@@ -28,10 +28,10 @@ import {
 } from '@nebular/theme';
 import { AuthInterceptor } from './@theme/auth/interceptors/auth.interceptor';
 import { TestComponent } from './test/test.component';
-import { DisablerDirective } from './disabler.directive';
+import { ErrorInterceptorService } from './services/error/error-interceptor.service';
 
 @NgModule({
-  declarations: [AppComponent, TestComponent, DisablerDirective],
+  declarations: [AppComponent, TestComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -71,6 +71,7 @@ import { DisablerDirective } from './disabler.directive';
       useClass: AuthInterceptor,
       multi: true,
     },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true },
 
   ],
   bootstrap: [AppComponent],

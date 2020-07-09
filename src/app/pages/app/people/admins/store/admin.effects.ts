@@ -7,7 +7,9 @@ import { AdminActionType,
   AdminLoadSuccessAction,
   AdminLoadFailAction,
   AdminInsertSuccessAction,
-  AdminInsertErrorAction} from './admin.actions';
+  AdminInsertErrorAction,
+  AdminDeleteSuccessAction,
+  AdminDeleteErrorAction} from './admin.actions';
 import { AdminService } from '../services/admin.service';
 import { AdminParams } from '../models/admin-params';
 import { AdminResponse } from '../models/admin-response';
@@ -52,4 +54,16 @@ export class AdminEffects {
             ),
           ),
         );
+
+        @Effect()
+        public deleteAmins$ = this.actions$
+          .pipe(ofType<AdminLoadAction>(AdminActionType.Delete),
+            map(action => action.payload),
+            switchMap((params: AdminParams) =>
+              this.service.deleteAdmin(params.admin).pipe(
+                map((response: AdminResponse) => new AdminDeleteSuccessAction(response)),
+                catchError((error) => of(new AdminDeleteErrorAction(error))),
+              ),
+            ),
+          );
 }

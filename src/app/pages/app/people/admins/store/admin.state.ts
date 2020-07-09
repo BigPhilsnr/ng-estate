@@ -6,6 +6,7 @@ export interface AdminState extends EntityState<Admin> {
   error: boolean;
   loading: boolean;
   total: number;
+  page: number;
 }
 
 export const adminAdapter: EntityAdapter<Admin> = createEntityAdapter<Admin>({
@@ -16,4 +17,5 @@ export const initialAdminState: AdminState = adminAdapter.getInitialState({
   error: false,
   loading: true,
   total: 0,
+  page: 0,
 });

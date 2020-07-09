@@ -63,7 +63,7 @@ import { RoomSingleComponent } from './app/management/property/room/room/room.co
 import { EditorsModule } from './editors/editors.module';
 import { CKEditorModule } from 'ng2-ckeditor';
 import { PeopleModule } from './app/people/module/people.module';
-import { AdminDetailComponent } from './app/people/admins/operations/admin-detail/admin-detail.component';
+
 
 const materialModules = [
   MatFormFieldModule,
@@ -152,7 +152,7 @@ const materialModules = [
     PaymentComponent,
     TblComponent,
     RoomSingleComponent,
-    AdminDetailComponent,
+
 
   ],
   providers: [CustomerService],

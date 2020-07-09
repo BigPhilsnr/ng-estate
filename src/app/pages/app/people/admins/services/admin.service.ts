@@ -28,7 +28,7 @@ export class AdminService {
   }
 
   public deleteAdmin(params: Admin): Observable<AdminResponse>{
-    return this.httpClient.post<AdminResponse>(`${this.url}/admin`, params);
+    return this.httpClient.delete<AdminResponse>(`${this.url}/admin?_id=${params._id}`);
   }
 
 }

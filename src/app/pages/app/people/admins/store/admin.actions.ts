@@ -110,17 +110,18 @@ export class AdminDeleteSuccessAction implements Action {
 export type AdminAction = AdminLoadAction
  | AdminLoadSuccessAction
  | AdminLoadFailAction
+
  |AdminInsertSuccessAction
  |AdminInsertErrorAction
  |AdminInsertLoadingAction
-| AdminInsertAction
+ |AdminInsertAction
 
-|AdminUpdateSuccessAction
+ |AdminUpdateSuccessAction
  |AdminUpdateErrorAction
  |AdminUpdateLoadingAction
-| AdminUpdateAction
+ |AdminUpdateAction
 
-|AdminDeleteSuccessAction
+ |AdminDeleteSuccessAction
  |AdminDeleteErrorAction
  |AdminDeleteLoadingAction
-| AdminDeleteAction;
+ |AdminDeleteAction;
